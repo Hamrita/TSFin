@@ -337,10 +337,8 @@ L(\varepsilon_1, \varepsilon_2,\ldots,\varepsilon_T|\mathbf{a})=\prod_{i=p+1}^T\
 \frac{\partial \ell}{\partial a_0}=0 \\
 \frac{\partial \ell}{\partial a_1}=0 
 \end{cases}
-\]</li>
+\] —</li>
 </ul>
-
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  class="smaller">
 
 <pre class = 'prettyprint lang-r'>fit1@fit$matcoef</pre>
 
@@ -439,7 +437,7 @@ Adjusted Pearson Goodness-of-Fit Test:
 4    50     12052            0
 
 
-Elapsed time : 0.2583122 </pre>
+Elapsed time : 0.241735 </pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article  class="smaller">
 
@@ -568,7 +566,7 @@ Adjusted Pearson Goodness-of-Fit Test:
 4    50    103.17    9.845e-06
 
 
-Elapsed time : 0.5316081 </pre>
+Elapsed time : 0.5066171 </pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article  class="smaller">
 
@@ -619,7 +617,7 @@ Call:
 
 Mean and Variance Equation:
  data ~ garch(1, 0)
-&lt;environment: 0x00000000303761b0&gt;
+&lt;environment: 0x000000003421a3d8&gt;
  [data = rt]
 
 Conditional Distribution:
@@ -645,7 +643,7 @@ Log Likelihood:
  5135.542    normalized:  1.985902 
 
 Description:
- Mon Nov 01 23:14:07 2021 by user: User 
+ Mon Nov 01 23:32:29 2021 by user: User 
 
 
 Standardised Residuals Tests:
@@ -767,7 +765,7 @@ Call:
 
 Mean and Variance Equation:
  data ~ garch(1, 1)
-&lt;environment: 0x0000000029228890&gt;
+&lt;environment: 0x000000003415b5a8&gt;
  [data = rt]
 
 Conditional Distribution:
@@ -793,7 +791,7 @@ Log Likelihood:
  4910.658    normalized:  1.89894 
 
 Description:
- Mon Nov 01 23:14:07 2021 by user: User 
+ Mon Nov 01 23:32:29 2021 by user: User 
 
 
 Standardised Residuals Tests:
@@ -907,9 +905,11 @@ Adjusted Pearson Goodness-of-Fit Test:
 4    50     462.6    1.103e-68
 
 
-Elapsed time : 0.163564 </pre>
+Elapsed time : 0.1520219 </pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article  class="smaller">
+
+<pre class = 'prettyprint lang-r'>ugarchforecast(Garch11,n.ahead = 5)</pre>
 
 <pre >
 *------------------------------------*

@@ -1,0 +1,21 @@
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ugarchforecast}\NormalTok{(Garch11,}\AttributeTok{n.ahead =} \DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\begin{verbatim}
+*------------------------------------*
+*       GARCH Model Forecast         *
+*------------------------------------*
+Model: sGARCH
+Horizon: 5
+Roll Steps: 0
+Out of Sample: 0
+0-roll forecast [T0=2021-10-20]:
+      Series   Sigma
+T+1 0.002182 0.03436
+T+2 0.002182 0.03486
+T+3 0.002182 0.03534
+T+4 0.002182 0.03579
+T+5 0.002182 0.03623
+\end{verbatim}

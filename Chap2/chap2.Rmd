@@ -3,12 +3,12 @@ title: "Econométrie de la finance"
 author: "Mohamed Essaied Hamrita"
 date: "Octobre 2021"
 output:
-  beamer_presentation:
-    incremental: yes
   ioslides_presentation:
     incremental: yes
     widescreen: yes
     smaller: yes
+  beamer_presentation:
+    incremental: yes
 bibliography: chap2.bib
 subtitle: 'Chapitre 2: Les modèles GARCH'
 ---
@@ -172,8 +172,6 @@ t(infocriteria(fit1))  # critères d'information (normalisés)
 t(infocriteria(fit4))
 ```
 
-
-
 ---
 
 __Estimation__
@@ -208,7 +206,6 @@ $$
 \frac{\partial \ell}{\partial a_1}=0 
 \end{cases}
 $$
-
 ---
 
 ```{r estArch, echo=TRUE, comment=""}
@@ -260,7 +257,6 @@ specSt=ugarchspec(list(garchOrder=c(1,0)), list(armaOrder=c(0,0)),distribution.m
 fitst=ugarchfit(specSt,rt)
 show(fitst)
 ```
-
 
 ---
 
