@@ -5,7 +5,7 @@ Supports pédagogiques du cours Econométrie de la finance destiné aux étudian
 
 __Chapitre 1: Introduction__   [__html__](https://rpubs.com/Sioud/827012),  [__pdf__](https://github.com/Hamrita/TSFin/blob/main/Chap1/Chap1_TSFin.pdf).
 
-__Chapitre 2: Les modèles GARCH__  [__html__](https://rpubs.com/Sioud/829906)
+__Chapitre 2: Les modèles GARCH__  [__html__](https://rpubs.com/Sioud/829906), [__pdf__](https://github.com/Hamrita/TSFin/blob/main/Chap2/Chap2%20(2).pdf)
 
 
 
