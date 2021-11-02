@@ -3,12 +3,12 @@ title: "Econométrie de la finance"
 author: "Mohamed Essaied Hamrita"
 date: "Octobre 2021"
 output:
+  beamer_presentation:
+    incremental: yes
   ioslides_presentation:
     incremental: yes
     widescreen: yes
     smaller: yes
-  beamer_presentation:
-    incremental: yes
 bibliography: chap2.bib
 subtitle: 'Chapitre 2: Les modèles GARCH'
 ---
@@ -184,7 +184,7 @@ où $\mathbf{a}=(a_0,a_1,\ldots,a_p)$ et $f(\varepsilon_1, \varepsilon_2,\ldots,
 
 - Maximiser la fonction de vraisemblance conditionnelle est équivalent à maximiser son logarithme. Le logarithme de la vraisemblance conditionnelle est:
 $$
-\ell(\varepsilon_{\color{red}{p+1}}, \varepsilon_\color{red}{{p+2}},\ldots,\varepsilon_\color{red}{T}|\mathbf{a}, a_\color{red}{1},a_\color{red}{2},\ldots,a_\color{red}{p})=\sum_{i=p+1}^T\left[-\frac{1}{2}\log(2\pi)-\frac{1}{2}\log(\sigma^2_t)-\frac{1}{2}\frac{\varepsilon_t^2}{\sigma^2_t} \right]
+\ell(\varepsilon_{\color{red}{p+1}}, \varepsilon_{\color{red}{{p+2}}},\ldots,\varepsilon_{\color{red}{T}}|\mathbf{a}, a_{\color{red}{1}},a_{\color{red}{2}},\ldots,a_{\color{red}{p}})=\sum_{i=p+1}^T\left[-\frac{1}{2}\log(2\pi)-\frac{1}{2}\log(\sigma^2_t)-\frac{1}{2}\frac{\varepsilon_t^2}{\sigma^2_t} \right]
 $$
 où $\sigma^2_t=a_0+a_1\varepsilon^2_{t-1}+a_2\varepsilon^2_{t-2}+\ldots+a_p\varepsilon^2_{t-p}$ qui peut être calculé récursivement.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.25)  1 NOV 2021 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.25)  2 NOV 2021 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -876,8 +876,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count341
 \l__pdf_internal_box=\box78
-)
-No file chap2.aux.
+) (./chap2.aux)
 \openout1 = `chap2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 160.
@@ -1055,8 +1054,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-No file chap2.nav.
-[1
+(./chap2.nav) [1
 
 {c:/Users/User/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex
 .map}] [2
@@ -1291,18 +1289,527 @@ Overfull \hbox (32.3664pt too wide) detected at line 383
 n/10.95 )
  []
 
-! Missing { inserted.
+
+Overfull \hbox (82.58879pt too wide) detected at line 383
+\OML/lmm/m/it/10.95 `\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[][]; "[][]; [] 
+; "[][]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OML/lmm/m/it/10.95 ; \T1/lmss
+/m/sl/10.95 a[][]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95 a[][]\OML/lmm/m/it/1
+0.95 ; [] ; \T1/lmss/m/sl/10.95 a[][]\OT1/lmss/m/n/10.95 ) = [] []
+ []
+
+
+Overfull \vbox (3.74796pt too high) detected at line 383
+ []
+
+[26
+
+]
+Overfull \hbox (32.3664pt too wide) detected at line 383
+\T1/lmss/m/sl/10.95 L\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[]; "[]; [] ; "[
+]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OT1/lmss/m/n/10.95 ) = [] [] [] [] 
+\OMS/lmsy/m/n/10.95 ^^B \T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OML/lmm/m/it
+/10.95 "[]; "[]; [] ; "[]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OT1/lmss/m/
+n/10.95 )
+ []
+
+
+Overfull \hbox (82.58879pt too wide) detected at line 383
+\OML/lmm/m/it/10.95 `\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[][]; "[][]; [] 
+; "[][]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OML/lmm/m/it/10.95 ; \T1/lmss
+/m/sl/10.95 a[][]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95 a[][]\OML/lmm/m/it/1
+0.95 ; [] ; \T1/lmss/m/sl/10.95 a[][]\OT1/lmss/m/n/10.95 ) = [] []
+ []
+
+
+Overfull \vbox (3.74796pt too high) detected at line 383
+ []
+
+[27
+
+]
+Overfull \hbox (32.3664pt too wide) detected at line 383
+\T1/lmss/m/sl/10.95 L\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[]; "[]; [] ; "[
+]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OT1/lmss/m/n/10.95 ) = [] [] [] [] 
+\OMS/lmsy/m/n/10.95 ^^B \T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OML/lmm/m/it
+/10.95 "[]; "[]; [] ; "[]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OT1/lmss/m/
+n/10.95 )
+ []
+
+
+Overfull \hbox (82.58879pt too wide) detected at line 383
+\OML/lmm/m/it/10.95 `\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[][]; "[][]; [] 
+; "[][]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OML/lmm/m/it/10.95 ; \T1/lmss
+/m/sl/10.95 a[][]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95 a[][]\OML/lmm/m/it/1
+0.95 ; [] ; \T1/lmss/m/sl/10.95 a[][]\OT1/lmss/m/n/10.95 ) = [] []
+ []
+
+
+Overfull \vbox (3.74796pt too high) detected at line 383
+ []
+
+[28
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (103.14215pt too wide) detected at line 9
+\OML/lmm/m/it/10.95 `\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 "[]; "[]; [] ; "[
+]\OMS/lmsy/m/n/10.95 j\T1/lmss/bx/n/10.95 a\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/
+10.95 a[]\OML/lmm/m/it/10.95 ; \T1/lmss/m/sl/10.95 a[]\OT1/lmss/m/n/10.95 ) = [
+] []
+ []
+
+
+Overfull \hbox (14.6392pt too wide) in paragraph at lines 30--30
+[]           \T1/lmtt/m/n/10.95 Estimate   Std. Error     t value    Pr(>|t|)[]
+ 
+ []
+
+
+Overfull \hbox (14.6392pt too wide) in paragraph at lines 30--30
+[]\T1/lmtt/m/n/10.95 mu     1.774978e-01 5.624388e-05 3155.859739 0.000000000[]
+ 
+ []
+
+
+Overfull \hbox (14.6392pt too wide) in paragraph at lines 30--30
+[]\T1/lmtt/m/n/10.95 omega  1.470274e-06 4.864592e-07    3.022399 0.002507798[]
+ 
+ []
+
+
+Overfull \hbox (14.6392pt too wide) in paragraph at lines 30--30
+[]\T1/lmtt/m/n/10.95 alpha1 5.665866e-01 1.517078e-04 3734.722111 0.000000000[]
+ 
+ []
+
+
+Overfull \hbox (20.38794pt too wide) in paragraph at lines 127--127
+[]\T1/lmtt/m/n/10.95 Weighted Ljung-Box Test on Standardized Squared Residuals[
+] 
+ []
+
+)
+Overfull \vbox (1244.79262pt too high) detected at line 513
+ []
+
+[29
+
+] [30
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb) [31
+
+] (./chap2.vrb) [32
+
+]
+<chap2_files/figure-beamer/hist_rt2-1.pdf, id=216, 722.7pt x 433.62pt>
+File: chap2_files/figure-beamer/hist_rt2-1.pdf Graphic file (type pdf)
+<use chap2_files/figure-beamer/hist_rt2-1.pdf>
+Package pdftex.def Info: chap2_files/figure-beamer/hist_rt2-1.pdf  used on inpu
+t line 552.
+(pdftex.def)             Requested size: 245.83282pt x 147.50163pt.
+[33
+
+ <./chap2_files/figure-beamer/hist_rt2-1.pdf>]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (20.38794pt too wide) in paragraph at lines 101--101
+[]\T1/lmtt/m/n/10.95 Weighted Ljung-Box Test on Standardized Squared Residuals[
+] 
+ []
+
+)
+Overfull \vbox (1032.20401pt too high) detected at line 656
+ []
+
+[34
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb) [35
+
+] (./chap2.vrb) [36
+
+] (./chap2.vrb) [37
+
+] (./chap2.vrb) [38
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (169.85501pt too wide) in paragraph at lines 11--11
+[]\T1/lmtt/m/n/10.95 Warning: Using formula(x) is deprecated when x is a charac
+ter vector of length > 1.[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 25--25
+[]          \T1/lmtt/m/n/10.95 Estimate   Std. Error   t value     Pr(>|t|)[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 25--25
+[]\T1/lmtt/m/n/10.95 mu     0.002290206 0.0004739852  4.831808 1.352984e-06[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 25--25
+[]\T1/lmtt/m/n/10.95 omega  0.002509288 0.0008199825  3.060172 2.212096e-03[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 25--25
+[]\T1/lmtt/m/n/10.95 alpha1 0.999999990 0.3677348660  2.719350 6.541026e-03[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 25--25
+[]\T1/lmtt/m/n/10.95 shape  2.286381480 0.1179821323 19.379049 0.000000e+00[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 39--39
+[]          \T1/lmtt/m/n/10.95 Estimate   Std. Error   t value     Pr(>|t|)[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 39--39
+[]\T1/lmtt/m/n/10.95 mu     0.002287490 0.0004738717  4.827234 1.384422e-06[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 39--39
+[]\T1/lmtt/m/n/10.95 omega  0.002465219 0.0008201576  3.005787 2.648943e-03[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 39--39
+[]\T1/lmtt/m/n/10.95 alpha1 0.998999883 0.3808058193  2.623384 8.706109e-03[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 39--39
+[]\T1/lmtt/m/n/10.95 shape  2.291507174 0.1233687554 18.574453 0.000000e+00[] 
+ []
+
+)
+Overfull \vbox (18.99953pt too high) detected at line 723
+ []
+
+[39
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (54.88034pt too wide) in paragraph at lines 61--61
+[] \T1/lmtt/m/n/10.95 garchFit(formula = ~garch(1, 0), data = rt, cond.dist = "
+std",[] 
+ []
+
+
+Overfull \hbox (49.1316pt too wide) in paragraph at lines 61--61
+[]\T1/lmtt/m/n/10.95 Signif. codes:  0 \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 
+***\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.001 \TS1/lmtt/m/n/10.95 '\T1/lmtt
+/m/n/10.95 **\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.01 \TS1/lmtt/m/n/10.95 
+'\T1/lmtt/m/n/10.95 *\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.05 \TS1/lmtt/m/
+n/10.95 '\T1/lmtt/m/n/10.95 .\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.1 \TS1/
+lmtt/m/n/10.95 ' ' \T1/lmtt/m/n/10.95 1[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 61--61
+[] \T1/lmtt/m/n/10.95 Ljung-Box Test     R^2  Q(10)  36.2839   7.522355e-05[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 61--61
+[] \T1/lmtt/m/n/10.95 Ljung-Box Test     R^2  Q(15)  38.19344  0.0008447584[] 
+ []
+
+
+Overfull \hbox (3.14174pt too wide) in paragraph at lines 61--61
+[] \T1/lmtt/m/n/10.95 LM Arch Test       R    TR^2   36.09029  0.0003133419[] 
+ []
+
+)
+Overfull \vbox (487.29128pt too high) detected at line 787
+ []
+
+[40
+
+] [41
+
+] [42
+
+] [43
+
+] [44
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb)
+Overfull \vbox (34.32863pt too high) detected at line 844
+ []
+
+[45
+
+] [46
+
+] [47
+
+] [48
+
+] [49
+
+] [50
+
+]
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[51
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
 <to be read again> 
-                   \def 
-l.383 \end{frame}
-                  
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[52
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[53
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[54
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[55
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[56
+
+]pdfTeX warning (ext4): destination with the same identifier (name{le-moduxe8le
+-garch}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.892 \end{frame}
+                 
+Overfull \vbox (1.14497pt too high) detected at line 892
+ []
+
+[57
+
+] [58
+
+] [59
+
+] [60
+
+] [61
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 14--14
+[]           \T1/lmtt/m/n/10.95 Estimate   Std. Error   t value     Pr(>|t|)[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10.95 mu     2.182371e-03 6.334182e-04  3.445387 5.702419e-04[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10.95 omega  6.937465e-05 1.063513e-05  6.523160 6.884138e-11[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10.95 alpha1 1.339155e-01 1.523577e-02  8.789549 0.000000e+00[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 14--14
+[]\T1/lmtt/m/n/10.95 beta1  8.365670e-01 1.548134e-02 54.037112 0.000000e+00[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 31--31
+[]           \T1/lmtt/m/n/10.95 Estimate   Std. Error   t value     Pr(>|t|)[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 31--31
+[]\T1/lmtt/m/n/10.95 mu     2.182108e-03 6.334382e-04  3.444864 5.713467e-04[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 31--31
+[]\T1/lmtt/m/n/10.95 omega  6.933686e-05 1.066024e-05  6.504249 7.808243e-11[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 31--31
+[]\T1/lmtt/m/n/10.95 alpha1 1.337894e-01 1.523686e-02  8.780639 0.000000e+00[] 
+
+ []
+
+
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 31--31
+[]\T1/lmtt/m/n/10.95 beta1  8.366535e-01 1.551168e-02 53.937005 0.000000e+00[] 
+
+ []
+
+) [62
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (8.89047pt too wide) in paragraph at lines 54--54
+[] \T1/lmtt/m/n/10.95 garchFit(formula = ~garch(1, 1), data = rt, trace = F)[] 
+
+ []
+
+
+Overfull \hbox (49.1316pt too wide) in paragraph at lines 54--54
+[]\T1/lmtt/m/n/10.95 Signif. codes:  0 \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 
+***\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.001 \TS1/lmtt/m/n/10.95 '\T1/lmtt
+/m/n/10.95 **\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.01 \TS1/lmtt/m/n/10.95 
+'\T1/lmtt/m/n/10.95 *\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.05 \TS1/lmtt/m/
+n/10.95 '\T1/lmtt/m/n/10.95 .\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 0.1 \TS1/
+lmtt/m/n/10.95 ' ' \T1/lmtt/m/n/10.95 1[] 
+ []
+
+)
+Overfull \vbox (446.0537pt too high) detected at line 1001
+ []
+
+[63
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb
+Overfull \hbox (20.38794pt too wide) in paragraph at lines 99--99
+[]\T1/lmtt/m/n/10.95 Weighted Ljung-Box Test on Standardized Squared Residuals[
+] 
+ []
+
+)
+Overfull \vbox (1005.004pt too high) detected at line 1103
+ []
+
+[64
+
+]
+\openout4 = `chap2.vrb'.
+
+(./chap2.vrb) [65
+
+] [66
+
+]
+\tf@nav=\write6
+\openout6 = `chap2.nav'.
+
+\tf@toc=\write7
+\openout7 = `chap2.toc'.
+
+\tf@snm=\write8
+\openout8 = `chap2.snm'.
+
+(./chap2.aux) ) 
 Here is how much of TeX's memory you used:
- 23366 strings out of 480496
- 436517 string characters out of 5899130
- 749368 words of memory out of 5000000
- 40358 multiletter control sequences out of 15000+600000
- 484070 words of font info for 136 fonts, out of 8000000 for 9000
+ 23585 strings out of 480496
+ 438887 string characters out of 5899130
+ 786573 words of memory out of 5000000
+ 40434 multiletter control sequences out of 15000+600000
+ 485247 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,11n,108p,1002b,546s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvip
+s/lm/lm-ts1.enc}{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc
+/dvips/lm/lm-ec.enc}{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc
+/dvips/lm/lm-rm.enc}{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc
+/dvips/lm/lm-mathex.enc}{c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts
+/enc/dvips/lm/lm-mathsy.enc}<c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/f
+onts/type1/public/lm/lmex10.pfb><c:/Users/User/AppData/Roaming/TinyTeX/texmf-di
+st/fonts/type1/public/lm/lmmi10.pfb><c:/Users/User/AppData/Roaming/TinyTeX/texm
+f-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/User/AppData/Roaming/TinyTeX/t
+exmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/Users/User/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/Users/User/AppData/Roaming/T
+inyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/User/AppData/Roamin
+g/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/User/AppData/
+Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb><c:/Users/User/App
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb><c:/Users/User
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/
+User/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Use
+rs/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:
+/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pf
+b><c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb><c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb>
+Output written on chap2.pdf (66 pages, 333725 bytes).
+PDF statistics:
+ 518 PDF objects out of 1000 (max. 8388607)
+ 400 compressed objects within 4 object streams
+ 142 named destinations out of 1000 (max. 500000)
+ 49210 words of extra memory for PDF output out of 51595 (max. 10000000)
 
-!  ==> Fatal error occurred, no output PDF file produced!
