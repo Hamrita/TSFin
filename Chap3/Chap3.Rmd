@@ -1,0 +1,145 @@
+---
+title: "Econométrie de la finance"
+author: "Mohamed Essaied Hamrita"
+date: "Octobre 2021"
+output:
+  pdf_document: 
+    includes:
+      in_header: pream.tex
+    latex_engine: xelatex
+    keep_tex: yes
+bibliography: chap3.bib
+subtitle: 'Chapitre 3: Les modèles non liléaires univariés'
+lang: fr
+urlcolor: blue
+linkcolor: blue
+link-citations: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(icons)
+```
+```{r, echo=FALSE}
+colFmt <- function(x,color) {
+  
+  outputFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  if(outputFormat == 'latex') {
+    ret <- paste("\\textcolor{",color,"}{",x,"}",sep="")
+  } else if(outputFormat == 'html') {
+    ret <- paste("<font color='",color,"'>",x,"</font>",sep="")
+  } else {
+    ret <- x
+  }
+
+  return(ret)
+}
+```
+
+## Introduction
+
+- Dans ce chapitre nous introduisons quelques modèles non linéaires univariés et nous discutons leurs propriétes statistiques.
+
+- Les modèles introduits sont: le modèle TAR (Threshold AR), le modèle Markov switching (MSM), smooth threshold
+autoregressive (STAR) models, et time-varying parameter models (TVM)
+
+## Le modèle TAR
+
+- Le modèle TAR est proposé par [@tong78] et largement utilisé depuis la publication de l'article de [@tong80].
+
+- Nous commençons par un modèle TAR simple à deux régimes, puis nous discutons le modèle TAR à régimes multiples.
+
+- __Définition:__ Une série temporelle $\{X_t\}$ suit un modèle TAR d'ordre $p$ avec la variable seuil $X_{t-d}$, s'il vérifie la relation suivante:
+$$
+X_t=\begin{cases}
+\phi_0+\displaystyle\sum_{i=1}^p\phi_iX_{t-i}+\sigma_1\varepsilon_t \;,\text{ si }\; X_{t-d} \leq r\\
+\theta_0+\displaystyle\sum_{i=1}^p\theta_iX_{t-i}+\sigma_2\varepsilon_t \;\;,\text{ si }\; X_{t-d} > r
+\end{cases}
+$$
+avec $\varepsilon_t \stackrel{iid}{\sim}(0,1)$, $\phi_i$ et $\theta_i$ des valeurs réelles telles que $\phi_i \neq \theta_i$ pour quelques valeurs de $i$. $d$ est entier positif et $r$ représente la valeur seuil (threshold).
+
+
+Le modèle TAR à deux régimes peut s'écrire sous la forme suivante:
+$$
+X_t=\phi_0+\displaystyle\sum_{i=1}^p\phi_iX_{t-i}+\sigma_1\varepsilon_t+I(X_{t-d} > r)\left(\beta_0+\displaystyle\sum_{i=1}^p\beta_iX_{t-i}+\gamma\varepsilon_t \right)
+$$
+où $I(X_{t-d} > r)=1$ si $X_{t-d} > r$ et $0$ sinon. $\beta_i=\theta_i-\phi_i$ pour $i=0,1,\ldots,p$ et $\gamma=\sigma_2-\sigma_1$
+
+
+__Exemple:__  Soit le processus $\{X_t\}$ définit par: 
+$$
+X_t=\begin{cases}
+0.2+0.45X_{t-1}+0.2\varepsilon_t \;,\text{ si }\; X_{t-4} \leq -1\\
+0.4+0.6X_{t-1}+0.5\varepsilon_t \;\;,\text{ si }\; X_{t-4} > 1
+\end{cases}
+$$
+```{r tar1, echo=TRUE, comment="", fig.align='center', message=FALSE, fig.width=6, fig.height=4}
+library(TSA); 
+set.seed(12345)
+x=tar.sim(n=500,Phi1=c(0.2,0.45), Phi2=c(0.4,0.6),p=1,
+          d=4,sigma1=0.2,sigma2=0.5, thd=-1)$y
+plot(x, type="l", col=2, xlab="", ylab=expression(X[t]))
+```
+
+
+## Propriétés statistiques
+
+Considérons le modèle TAR$(1)$ à deux régime:
+$$
+X_t=\begin{cases}
+\phi_1 X_{t-1}+\sigma_1\varepsilon_t \;,\text{ si }\; X_{t-1} \leq 0\\
+\theta_1 X_{t-1}+\sigma_2\varepsilon_t \;\;,\text{ si }\; X_{t-1} > 0
+\end{cases}
+$$
+La skeleton de ce modèle est
+$$
+f(X_{t-1})=\begin{cases}
+\phi_1 X_{t-1}\;,\text{ si }\; X_{t-1} \leq 0\\
+\theta_1 X_{t-1}\;\;,\text{ si }\; X_{t-1} > 0
+\end{cases}
+$$
+Puisque $x_0$ est supposée un réel quelconque, alors pour que la série $X_t$ soit stable, il faut que $\phi_1 < 1$, $\theta_1 < 1$ et $\phi_1 \theta_1 <1$.
+
+Pour $d>1$, [@chenTsay91] ont montré que les conditions de stabilité du modèle est: $\phi_1 <1$, $\theta_1 <1$ et $\phi_1^{s(d)}\theta_1^{t(d)}$ où $s(d)=t(d)=1$ si $d=1$ et $s(d)=1$, $t(d)=2$ si $d=2$.
+
+## Estimation du modèle TAR
+
+Le modèle TAR à deux régime peut être estimé soit par la méthode du maximum de vraisemblance, soit par la méthode des MCO. Ici, on donne la méthode des MCO. La matrice des variables explicatives peut être écrite de la forme suivante:
+$$
+X_t(r)=\left(X'_1 \,I(X_{t-d}\leq r)\;\;X'_2\,I(X_{t-d} > r)) \right)
+$$
+d'où, le modèle peut se réécrire comme:
+$$
+X_t=X'_t(r)\alpha+\varepsilon_t\;\text{ où }\; \alpha=(\phi'\;\;\theta')'
+$$
+Pour $r$ donnée, on obtient:
+$$
+\widehat{\alpha}(r)=\left(X'_t(r)X_t(r)\right)^{-1}X'_t(r)X_t
+$$
+
+
+__Estimation du paramètre__ $r$: L'estimation du vecteur $\alpha$ se fait pour $r$ fixé. Or, $r$ est généralement inconnu. Donc, ce paramètre sera estimé en faisant varier le paramètre $r$, soit une séquence de $n$ valeurs. Pour chaque valeur de $r$, on calcul la somme carré des erreurs du modèle estimé, puis on retient la valeur du $r$ qui correspond à la somme des carrés des erreurs la plus faible.
+
+__Estimation du paramètre__ $d$: Dans la pratique, le paramètre $d$ est inconnu et on doit l'estimer. Ce paramètre sera estimé avec le vecteur $\alpha$ en imposant $d \in \{1,2,\ldots,\overline{d}\}$.
+
+__Test statistique TAR__: 
+
+Une question importante est posée: quand le modèle TAR est statistiquement significative relativement à un modèle linéaire. Il s'agit de tester: $H_0:\; \phi=\theta$. Puisque la valeur du seuil $r$ est inconnue, un tel test devient délicat.
+
+Pour plus amples discussions, voir [@chan90] et [@hansen97]
+
+## Prévision
+
+
+Pour $d \geq 1$ donné, la prévision à une étape est donnée par:
+$$
+X_{T+1}=\begin{cases}
+\phi_0+\displaystyle\sum_{i=1}^p\phi_iX_{T+1-i},\quad e_{T+1}=\sigma_1\varepsilon_{T+1},\;\;\text{ si } X_{t-d}\leq r\\
+\theta_0+\displaystyle\sum_{i=1}^p\theta_iX_{T+1-i},\quad e_{T+1}=\sigma_2\varepsilon_{T+1},\;\;\text{ si } X_{t-d}> r
+\end{cases}
+$$
+
+
+__Références__
