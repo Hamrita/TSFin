@@ -303,6 +303,111 @@ X_{T+1}=\begin{cases}
 \end{cases}
 \]
 
+\hypertarget{application}{%
+\subsection{Application}\label{application}}
+
+On veut modéliser le prix du Cooper. On considère la série des prix
+annuels du Cooper allant de 1800 à 1996
+(\protect\hyperlink{ref-hyndman2016}{Hyndman et Yang 2018}). La série
+est ajustée après avoir éliminer la tendance. La figure suivante montre
+l'évolution des prix et la fonction d'auto-corrélation simple.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cooper}\OtherTok{=}\FunctionTok{scan}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/Hamrita/TSFin/main/Chap3/copper.txt"}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(}\DecValTok{1800}\SpecialCharTok{:}\DecValTok{1996}\NormalTok{,cooper, }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{col=}\DecValTok{2}\NormalTok{, }\AttributeTok{xlab=}\StringTok{""}\NormalTok{, }\AttributeTok{ylab=}\StringTok{""}\NormalTok{)}
+\FunctionTok{acf}\NormalTok{(cooper)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Chap3_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+Un premier examen de non linéarité se fait en représentant \(x_t\) en
+fonction de \(x_{t-1}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ cooper[}\DecValTok{2}\SpecialCharTok{:}\DecValTok{197}\NormalTok{]; x }\OtherTok{\textless{}{-}}\NormalTok{ cooper[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{196}\NormalTok{]}
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \FunctionTok{loess}\NormalTok{(y}\SpecialCharTok{\textasciitilde{}}\NormalTok{x)  }\DocumentationTok{\#\# local smoothing}
+\NormalTok{sx }\OtherTok{\textless{}{-}} \FunctionTok{sort}\NormalTok{(x,}\AttributeTok{index=}\NormalTok{T)  }\DocumentationTok{\#\# sorting the threshold variable}
+\NormalTok{ix }\OtherTok{\textless{}{-}}\NormalTok{ sx}\SpecialCharTok{$}\NormalTok{ix }\DocumentationTok{\#\# index for order{-}statistics}
+ \FunctionTok{plot}\NormalTok{(x,y,}\AttributeTok{xlab=}\StringTok{\textquotesingle{}x(t{-}1)\textquotesingle{}}\NormalTok{,}\AttributeTok{ylab=}\StringTok{\textquotesingle{}x(t)\textquotesingle{}}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(x[ix],m1}\SpecialCharTok{$}\NormalTok{fitted[ix],}\AttributeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Chap3_files/figure-latex/unnamed-chunk-3-1} \end{center}
+
+On remarque bien que la dépendance entre \(x_t\) et \(x_{t-1}\) est non
+linéaire.
+
+\textbf{Tests de linéarité}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(nonlinearTseries)}
+\NormalTok{tests}\OtherTok{=}\FunctionTok{nonlinearityTest}\NormalTok{(cooper, F)}
+\NormalTok{tests}\SpecialCharTok{$}\NormalTok{TarTest}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+$percentiles
+[1] 24.72527 75.27473
+
+$test.statistic
+[1] 66.50607
+
+$p.value
+[1] 1.896341e-06
+\end{verbatim}
+
+On a p-value qui est inférieur à \(5\%\), donc on rejette l'hypothèse
+nulle de linéarité du modèle.
+
+\textbf{Estimation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tsDyn)}
+\NormalTok{mod}\OtherTok{=}\FunctionTok{setar}\NormalTok{(cooper,}\AttributeTok{m=}\DecValTok{3}\NormalTok{,}\AttributeTok{d=}\DecValTok{1}\NormalTok{,}\AttributeTok{mL=}\DecValTok{2}\NormalTok{,}\AttributeTok{mH=}\DecValTok{2}\NormalTok{)}
+\NormalTok{ss}\OtherTok{=}\FunctionTok{summary}\NormalTok{(mod)}
+\NormalTok{ss}\SpecialCharTok{$}\NormalTok{coef}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           Estimate  Std. Error    t value     Pr(>|t|)
+const.L  0.11254434  0.06677038  1.6855430 9.351685e-02
+phiL.1   0.98690602  0.10805163  9.1336526 9.634921e-17
+phiL.2  -0.02297053  0.09154768 -0.2509133 8.021508e-01
+const.H  0.62130257  0.34080242  1.8230580 6.985800e-02
+phiH.1   0.80837079  0.14826866  5.4520680 1.526336e-07
+phiH.2  -0.33916240  0.10905935 -3.1098883 2.158115e-03
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ss}\SpecialCharTok{$}\NormalTok{AIC}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -94.53252
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ss}\SpecialCharTok{$}\NormalTok{thCoef}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+      th 
+1.221279 
+\end{verbatim}
+
 \textbf{Références}
 
 \hypertarget{refs}{}
@@ -319,6 +424,10 @@ Processes~»}. \emph{The Annals of Applied Probability} 1 (4): 613‑34.
 \leavevmode\vadjust pre{\hypertarget{ref-hansen97}{}}%
 Hansen, Bruce. 1997. {«~Inference in TAR Models~»}. \emph{Studies in
 Nonlinear Dynamics \& Econometrics} 2 (1): 1‑16.
+
+\leavevmode\vadjust pre{\hypertarget{ref-hyndman2016}{}}%
+Hyndman, Rob, et Yangzhuoran Yang. 2018. {«~tsdl: Time Series Data
+Library. v0.1.0~»}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-tong78}{}}%
 Tong, Howell. 1978. {«~Pattern Recognition and Signal Processing. NATO

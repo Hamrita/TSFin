@@ -141,5 +141,49 @@ X_{T+1}=\begin{cases}
 \end{cases}
 $$
 
+## Application
+
+On veut modéliser le prix du Cooper. On considère la série des prix annuels du Cooper allant de 1800 à 1996 [@hyndman2016]. La série est ajustée après avoir éliminer la tendance. La figure suivante montre l'évolution des prix et la fonction d'auto-corrélation simple.
+
+```{r, echo=TRUE,message=FALSE, fig.align='center', fig.height=4, fig.width=9}
+cooper=scan("https://raw.githubusercontent.com/Hamrita/TSFin/main/Chap3/copper.txt")
+par(mfrow=c(1,2))
+plot(1800:1996,cooper, type="l", col=2, xlab="", ylab="")
+acf(cooper)
+```
+
+Un premier examen de non linéarité se fait en représentant $x_t$ en fonction de $x_{t-1}$
+
+```{r, echo=TRUE,comment="", fig.align='center', fig.height=4}
+y <- cooper[2:197]; x <- cooper[1:196]
+m1 <- loess(y~x)  ## local smoothing
+sx <- sort(x,index=T)  ## sorting the threshold variable
+ix <- sx$ix ## index for order-statistics
+ plot(x,y,xlab='x(t-1)',ylab='x(t)')
+lines(x[ix],m1$fitted[ix],col="red")
+```
+
+On remarque bien que la dépendance entre $x_t$ et $x_{t-1}$ est non linéaire.
+
+__Tests de linéarité__
+
+```{r, echo=TRUE,test, message=FALSE, warning=FALSE, comment=""}
+library(nonlinearTseries)
+tests=nonlinearityTest(cooper, F)
+tests$TarTest
+```
+
+On a p-value qui est inférieur à $5\%$, donc on rejette l'hypothèse nulle de linéarité du modèle.
+
+__Estimation__
+
+```{r, est, echo=TRUE, comment="", message=FALSE, warning=FALSE}
+library(tsDyn)
+mod=setar(cooper,m=3,d=1,mL=2,mH=2)
+ss=summary(mod)
+ss$coef
+ss$AIC
+ss$thCoef
+```
 
 __Références__
