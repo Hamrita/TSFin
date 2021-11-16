@@ -7,6 +7,8 @@ __Chapitre 1: Introduction__   [__html__](https://rpubs.com/Sioud/827012),  [__p
 
 __Chapitre 2: Les modèles GARCH__  [__html__](https://rpubs.com/Sioud/829906), [__pdf__](https://github.com/Hamrita/TSFin/blob/main/Chap2/Chap2%20(2).pdf)
 
+__Chapitre 3: Les modèles non linéaires__ [__pdf__]()
+
 
 
 
