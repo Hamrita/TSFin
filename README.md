@@ -9,6 +9,8 @@ __Chapitre 2: Les modèles GARCH__  [__html__](https://rpubs.com/Sioud/829906), 
 
 __Chapitre 3: Les modèles non linéaires__ [__pdf__](https://github.com/Hamrita/TSFin/blob/main/Chap3/Chap3.pdf)
 
+[__Projets__]()
+
 
 
 
