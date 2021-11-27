@@ -1,0 +1,53 @@
+---
+title: "Projets"
+author: ''
+date: ''
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment = "", warning = F, message = F)
+```
+
+## Base de données
+
+La base de données pour tous les projets est le cours de SP500 de fréquence journalière allant de 6-01-2018 jusqu'au 23-11-2021. Vous pouvez télécharger ces données en vous aidant à la fonction `getSymbols` du package `quantmod`. (le symbol de sp500 est `^GSPC`)
+
+On vous demande de calculer les rendements des prix ajustés, puis représenter graphiquement la série des prix ajustés, la série des rendements, la fonction d'auto-corrélations simples et partielles.
+
+## Projet 1
+
+- Présentation du modèle EGARCH: modélisation, estimation et tests statistiques
+- Modélisation des rendements par un modèle EGARCH. Varier les paramètres du modèles et la distribution des erreurs, puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 2
+
+- Présentation du modèle GJR-GARCH: modélisation, estimation et tests statistiques
+- Modélisation des rendements par un modèle GJR-GARCH. Varier les paramètres du modèles et la distribution des erreurs, puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 3
+
+- Présentation du modèle APARCH: modélisation, estimation et tests statistiques
+- Modélisation des rendements par un modèle APARCH. Varier les paramètres du modèles et la distribution des erreurs, puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 4
+
+- Présentation du modèle TGARCH: modélisation, estimation et tests statistiques
+- Modélisation des rendements par un modèle TGARCH. Varier les paramètres du modèles et la distribution des erreurs, puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 5
+
+- Présentation du modèle VS-GARCH: modélisation, estimation et tests statistiques
+- Modélisation des rendements par un modèle VS-GARCH. Varier les paramètres du modèles et la distribution des erreurs, puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 6
+
+- Présentation du modèle résaux de neurones auto-regressif NNAR(p,n): modélisation, estimation et tests statistiques. (On peut utiliser la fonction `nnetar` du package `forecast`).
+- Modélisation des rendements par différents modèles NNAR(p,n), puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
+
+## Projet 7
+
+- Présentation du modèle auto-régressif dynamique (tvAR: time varying autoregressif model) modélisation, estimation et tests statistiques. (On peut utiliser la fonction `tvAR` du package `NTS`).
+- Modélisation des rendements par différents modèles tvAR(x,lags), puis sélectionner le modèle le plus adéquat selon les critères AIC, RMSE etc.
