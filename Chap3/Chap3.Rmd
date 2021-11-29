@@ -8,6 +8,8 @@ output:
       in_header: pream.tex
     latex_engine: xelatex
     keep_tex: yes
+    toc: yes
+    number_sections: yes
 bibliography: chap3.bib
 subtitle: 'Chapitre 3: Les modèles non liléaires univariés'
 lang: fr
@@ -38,14 +40,14 @@ colFmt <- function(x,color) {
 }
 ```
 
-## Introduction
+# Introduction
 
 - Dans ce chapitre nous introduisons quelques modèles non linéaires univariés et nous discutons leurs propriétes statistiques.
 
 - Les modèles introduits sont: le modèle TAR (Threshold AR), le modèle Markov switching (MSM), smooth threshold
 autoregressive (STAR) models, et time-varying parameter models (TVM)
 
-## Le modèle TAR
+# Le modèle TAR
 
 - Le modèle TAR est proposé par [@tong78] et largement utilisé depuis la publication de l'article de [@tong80].
 
@@ -185,5 +187,133 @@ ss$coef
 ss$AIC
 ss$thCoef
 ```
+# Le modèle à changement de régimes Markovien (Markov Switching)
+
+[@hamilton90] introduit _Markov Switching model_  d'ordre $p$, noté par $MS(p)$. Dans le cas de deux régimes, le modèle prend la forme suivante:
+$$
+X_t=\begin{cases}
+\mu_{1,t}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; t=1,2,\ldots, t_0\\
+\mu_{2,t}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; t=t_0+1,t_0+2,\ldots,T
+\end{cases}
+$$
+avec $\mu_{s_t,t}$ est la moyenne conditionnelle aux temps-régimes, et $\varepsilon_{s_t,t}\stackrel{iid}{\sim}iid(0,\sigma_{s_t})$ les innovations conditionnelles aux régimes. La variable état $s_t$ est non observable et on suppose qu'elle est gouvernée par un processus Markovien de premier ordre avec une matrice de transition donnée par:
+$$
+P=\left( \begin{array}{cc}
+p_{00} & p_{01}\\
+p_{10} & p_{11}
+\end{array}
+\right)
+$$
+avec $p_{ij}=\mathbb{P}(s_t=j|s_{t-1}=i)$ et $p_{00}+p_{01}=p_{10}+p_{11}=1$.
+
+
+Dans le cas où la moyenne conditionnelle est un processus $AR(1)$, on aura la forme suivante:
+$$
+X_t=\begin{cases}
+\alpha_0+\phi_1 X_{t-1}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; t=1,2,\ldots, t_0\\
+\alpha_1+\phi_2X_{t-1}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; t=t_0+1,t_0+2,\ldots,T
+\end{cases}
+$$
+avec $|\phi_i|<1$, $i=1,2$ et on a $\mathbb{E}(X_t)$ est égale à $\alpha_0/(1-\phi_1)$ si $s_t=0$ et à $\alpha_1/(1-\phi_2)$ si $s_t=1$.
+
+## Simulation d'un modèle MS
+
+Soit le modèle suivant:
+$$
+X_t=\begin{cases}
+0.1+0.4 X_{t-1}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; \varepsilon_1\sim N(0,0.1)\\
+-0.3 -0.5 X_{t-1}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; \varepsilon_2 \sim N(0,0.2)
+\end{cases}
+$$
+
+```{r,echo=TRUE,sim1, comment="", warning=FALSE, message=FALSE}
+St=c(rep(0,60),rep(1,30),rep(0,20),rep(1,50),rep(0,40))
+n=length(St); sig1=0.1; sig2=0.2
+Xt=numeric(n+1)
+set.seed(123)
+Xt[1]=rnorm(1);e1=rnorm(n,0,sig1); e2=rnorm(n,0,sig2)
+for(i in 2:(n+1)){
+  if(St[i-1]==0){
+    Xt[i]=0.1+0.4*Xt[i-1]+e1[i]
+  }else{
+    Xt[i]=-0.3-0.5*Xt[i-1]+e2[i]
+  }
+}
+xt=Xt[-1]
+plot.ts(xt)
+```
+
+## Estimation
+
+Les paramètres intéressés dans le modèle $MS(2)$ avec moyenne conditionnelle suivant un processus $AR(1)$ sont représentés par le vecteur $\theta=(\mu_0,\mu_1,\sigma_1,\sigma_2,p_{00},p_{11})$ dans le cas où la moyenne conditionnelle est supposée constante.
+
+De plus, on suppose que l'inférence de la variable $s_t$ pourrait prendre la forme suivante:
+$$
+P_{j,t}=\mathbb{P}(s_t=j|\mathcal{I}_t;\theta)
+$$
+où $\mathcal{I}_t$ représente l'information disponible à l'instant $t$ et $i=0,1$. Puis, on déduit la densité conditionnelle de la variable $X_t$ qui est donnée par
+$$
+f(X_t|s_t=i, \mathcal{I}_{t-1},\theta)=\dfrac{1}{\sigma_i\sqrt{2\pi}}\exp\left(-\dfrac{1}{2\sigma_i^2}(X_t-\mu_i)^2\right),\;\;i=0,1
+$$
+[@hamilton90] a montré que la densité conditionnelle de la $t$ième observation est
+$$
+f(X_t| \mathcal{I}_{t-1},\theta)=\sum_{i=0}^1\sum_{j=0}^1p_{ij}P_{j,t}f(X_t|s_t=i, \mathcal{I}_{t-1},\theta)
+$$
+On en déduit la fonction de vraisemblance
+$$
+l=\sum_{t=1}^T\log\Big(f(X_t| \mathcal{I}_{t-1},\theta)\Big)
+$$
+__Remarques:__
+
+1) Il y a d'autres méthodes itératives d'estimation telles que la méthode de Markov chain Monte Carlo (MCMC).
+
+2) Les erreurs peuvent avoir une variance qui varie conditionnellement  en fonction du temps, dans ce cas on parle du modèle GARCH à changement de régimes Markovien.
+
+3) Dans ce cours, nous avons présenté l'estimation du modèle le plus simple (à changement de deux régimes), mais dans la pratique, il y a plus que deux régimes et le nombre de changements est généralement est inconnu et, alors doit être estimé.
+
+## Exemples
+
+### Exemple 1
+
+On commence par l'estimation du modèle simulé ci-dessus.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, comment=""}
+dat=data.frame(cbind(xt[-n],xt[-1]))
+names(dat)=c("y","x")
+lm1=lm(y~x, data=dat)
+library(MSwM)
+ms1=msmFit(lm1,k=2,sw=c(T,T,T))
+summary(ms1)
+```
+
+### Exemple 2
+Dans l'exemple suivant, on veut étudier la relation entre le nombre de décès des accidents et les conditions climatiques.
+
+Les données du `traffic` contiennent le nombre quotidien de décès dans des accidents de la circulation en Espagne au cours de l'année 2010, la température moyenne quotidienne et la somme quotidienne des précipitations.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, comment=""}
+data(traffic)
+head(traffic)
+```
+Dans cet exemple, la variable de réponse est une variable de comptage. Pour cette raison, nous ajustons un modèle linéaire généralisé de Poisson.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, comment=""}
+mod1=glm(NDead~Temp+Prec, family="poisson",data=traffic)
+m1=msmFit(mod1,k=2,sw=c(TRUE,TRUE,TRUE),family="poisson",
+          control=list(parallel=FALSE))
+slotNames(m1)
+summary(m1)
+```
+```{r, echo=TRUE, message=FALSE, warning=FALSE, comment=""}
+filtProb=m1@Fit@filtProb
+smoothProb=m1@Fit@smoProb
+par(mfrow=c(2,2))
+plot(filtProb[,1], type="l", ylab="Prob Filt 1")
+plot(filtProb[,2], type="l", ylab="Prob Filt 2")
+plot(smoothProb[,1], type="l", ylab="Prob lisse 1")
+plot(smoothProb[,1], type="l", ylab="Prob lisse 2")
+```
+
+# Modèle à coefficients dynamiques (Time varying coefficients model)
 
 __Références__

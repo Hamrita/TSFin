@@ -116,7 +116,7 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\setcounter{secnumdepth}{5}
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
@@ -170,8 +170,13 @@
 \begin{document}
 \maketitle
 
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
 \hypertarget{introduction}{%
-\subsection{Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}}
 
 \begin{itemize}
 \item
@@ -184,7 +189,7 @@
 \end{itemize}
 
 \hypertarget{le-moduxe8le-tar}{%
-\subsection{Le modèle TAR}\label{le-moduxe8le-tar}}
+\section{Le modèle TAR}\label{le-moduxe8le-tar}}
 
 \begin{itemize}
 \item
@@ -408,6 +413,281 @@ phiH.2  -0.33916240  0.10905935 -3.1098883 2.158115e-03
 1.221279 
 \end{verbatim}
 
+\hypertarget{le-moduxe8le-uxe0-changement-de-ruxe9gimes-markovien-markov-switching}{%
+\section{Le modèle à changement de régimes Markovien (Markov
+Switching)}\label{le-moduxe8le-uxe0-changement-de-ruxe9gimes-markovien-markov-switching}}
+
+(\protect\hyperlink{ref-hamilton90}{Hamilton 1990}) introduit
+\emph{Markov Switching model} d'ordre \(p\), noté par \(MS(p)\). Dans le
+cas de deux régimes, le modèle prend la forme suivante: \[
+X_t=\begin{cases}
+\mu_{1,t}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; t=1,2,\ldots, t_0\\
+\mu_{2,t}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; t=t_0+1,t_0+2,\ldots,T
+\end{cases}
+\] avec \(\mu_{s_t,t}\) est la moyenne conditionnelle aux temps-régimes,
+et \(\varepsilon_{s_t,t}\stackrel{iid}{\sim}iid(0,\sigma_{s_t})\) les
+innovations conditionnelles aux régimes. La variable état \(s_t\) est
+non observable et on suppose qu'elle est gouvernée par un processus
+Markovien de premier ordre avec une matrice de transition donnée par: \[
+P=\left( \begin{array}{cc}
+p_{00} & p_{01}\\
+p_{10} & p_{11}
+\end{array}
+\right)
+\] avec \(p_{ij}=\mathbb{P}(s_t=j|s_{t-1}=i)\) et
+\(p_{00}+p_{01}=p_{10}+p_{11}=1\).
+
+Dans le cas où la moyenne conditionnelle est un processus \(AR(1)\), on
+aura la forme suivante: \[
+X_t=\begin{cases}
+\alpha_0+\phi_1 X_{t-1}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; t=1,2,\ldots, t_0\\
+\alpha_1+\phi_2X_{t-1}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; t=t_0+1,t_0+2,\ldots,T
+\end{cases}
+\] avec \(|\phi_i|<1\), \(i=1,2\) et on a \(\mathbb{E}(X_t)\) est égale
+à \(\alpha_0/(1-\phi_1)\) si \(s_t=0\) et à \(\alpha_1/(1-\phi_2)\) si
+\(s_t=1\).
+
+\hypertarget{simulation-dun-moduxe8le-ms}{%
+\subsection{Simulation d'un modèle
+MS}\label{simulation-dun-moduxe8le-ms}}
+
+Soit le modèle suivant: \[
+X_t=\begin{cases}
+0.1+0.4 X_{t-1}+\varepsilon_{1,t}\;\quad \text{ si }s_t = 0,\; \varepsilon_1\sim N(0,0.1)\\
+-0.3 -0.5 X_{t-1}+\varepsilon_{2,t}\;\quad \text{ si }s_t=1,\; \varepsilon_2 \sim N(0,0.2)
+\end{cases}
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{St}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{60}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{30}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{50}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{40}\NormalTok{))}
+\NormalTok{n}\OtherTok{=}\FunctionTok{length}\NormalTok{(St); sig1}\OtherTok{=}\FloatTok{0.1}\NormalTok{; sig2}\OtherTok{=}\FloatTok{0.2}
+\NormalTok{Xt}\OtherTok{=}\FunctionTok{numeric}\NormalTok{(n}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{Xt[}\DecValTok{1}\NormalTok{]}\OtherTok{=}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{);e1}\OtherTok{=}\FunctionTok{rnorm}\NormalTok{(n,}\DecValTok{0}\NormalTok{,sig1); e2}\OtherTok{=}\FunctionTok{rnorm}\NormalTok{(n,}\DecValTok{0}\NormalTok{,sig2)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{2}\SpecialCharTok{:}\NormalTok{(n}\SpecialCharTok{+}\DecValTok{1}\NormalTok{))\{}
+  \ControlFlowTok{if}\NormalTok{(St[i}\DecValTok{{-}1}\NormalTok{]}\SpecialCharTok{==}\DecValTok{0}\NormalTok{)\{}
+\NormalTok{    Xt[i]}\OtherTok{=}\FloatTok{0.1+0.4}\SpecialCharTok{*}\NormalTok{Xt[i}\DecValTok{{-}1}\NormalTok{]}\SpecialCharTok{+}\NormalTok{e1[i]}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+\NormalTok{    Xt[i]}\OtherTok{=}\SpecialCharTok{{-}}\FloatTok{0.3{-}0.5}\SpecialCharTok{*}\NormalTok{Xt[i}\DecValTok{{-}1}\NormalTok{]}\SpecialCharTok{+}\NormalTok{e2[i]}
+\NormalTok{  \}}
+\NormalTok{\}}
+\NormalTok{xt}\OtherTok{=}\NormalTok{Xt[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\FunctionTok{plot.ts}\NormalTok{(xt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Chap3_files/figure-latex/sim1-1.pdf}
+
+\hypertarget{estimation}{%
+\subsection{Estimation}\label{estimation}}
+
+Les paramètres intéressés dans le modèle \(MS(2)\) avec moyenne
+conditionnelle suivant un processus \(AR(1)\) sont représentés par le
+vecteur \(\theta=(\mu_0,\mu_1,\sigma_1,\sigma_2,p_{00},p_{11})\) dans le
+cas où la moyenne conditionnelle est supposée constante.
+
+De plus, on suppose que l'inférence de la variable \(s_t\) pourrait
+prendre la forme suivante: \[
+P_{j,t}=\mathbb{P}(s_t=j|\mathcal{I}_t;\theta)
+\] où \(\mathcal{I}_t\) représente l'information disponible à l'instant
+\(t\) et \(i=0,1\). Puis, on déduit la densité conditionnelle de la
+variable \(X_t\) qui est donnée par \[
+f(X_t|s_t=i, \mathcal{I}_{t-1},\theta)=\dfrac{1}{\sigma_i\sqrt{2\pi}}\exp\left(-\dfrac{1}{2\sigma_i^2}(X_t-\mu_i)^2\right),\;\;i=0,1
+\] (\protect\hyperlink{ref-hamilton90}{Hamilton 1990}) a montré que la
+densité conditionnelle de la \(t\)ième observation est \[
+f(X_t| \mathcal{I}_{t-1},\theta)=\sum_{i=0}^1\sum_{j=0}^1p_{ij}P_{j,t}f(X_t|s_t=i, \mathcal{I}_{t-1},\theta)
+\] On en déduit la fonction de vraisemblance \[
+l=\sum_{t=1}^T\log\Big(f(X_t| \mathcal{I}_{t-1},\theta)\Big)
+\] \textbf{Remarques:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Il y a d'autres méthodes itératives d'estimation telles que la méthode
+  de Markov chain Monte Carlo (MCMC).
+\item
+  Les erreurs peuvent avoir une variance qui varie conditionnellement en
+  fonction du temps, dans ce cas on parle du modèle GARCH à changement
+  de régimes Markovien.
+\item
+  Dans ce cours, nous avons présenté l'estimation du modèle le plus
+  simple (à changement de deux régimes), mais dans la pratique, il y a
+  plus que deux régimes et le nombre de changements est généralement est
+  inconnu et, alors doit être estimé.
+\end{enumerate}
+
+\hypertarget{exemples}{%
+\subsection{Exemples}\label{exemples}}
+
+\hypertarget{exemple-1}{%
+\subsubsection{Exemple 1}\label{exemple-1}}
+
+On commence par l'estimation du modèle simulé ci-dessus.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(xt[}\SpecialCharTok{{-}}\NormalTok{n],xt[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]))}
+\FunctionTok{names}\NormalTok{(dat)}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\StringTok{"y"}\NormalTok{,}\StringTok{"x"}\NormalTok{)}
+\NormalTok{lm1}\OtherTok{=}\FunctionTok{lm}\NormalTok{(y}\SpecialCharTok{\textasciitilde{}}\NormalTok{x, }\AttributeTok{data=}\NormalTok{dat)}
+\FunctionTok{library}\NormalTok{(MSwM)}
+\NormalTok{ms1}\OtherTok{=}\FunctionTok{msmFit}\NormalTok{(lm1,}\AttributeTok{k=}\DecValTok{2}\NormalTok{,}\AttributeTok{sw=}\FunctionTok{c}\NormalTok{(T,T,T))}
+\FunctionTok{summary}\NormalTok{(ms1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Markov Switching Model
+
+Call: msmFit(object = lm1, k = 2, sw = c(T, T, T))
+
+        AIC       BIC   logLik
+  -205.1837 -170.8776 106.5919
+
+Coefficients:
+
+Regime 1 
+---------
+               Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)(S)   0.1220     0.0196  6.2245 4.831e-10 ***
+x(S)             0.2584     0.0993  2.6022  0.009263 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.09499642
+Multiple R-squared: 0.08211
+
+Standardized Residuals:
+        Min          Q1         Med          Q3         Max 
+-0.21158765 -0.02421152 -0.00101418  0.02057716  0.25395619 
+
+Regime 2 
+---------
+               Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)(S)  -0.2928     0.0332 -8.8193 < 2.2e-16 ***
+x(S)            -0.5446     0.1019 -5.3445 9.067e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2030312
+Multiple R-squared: 0.295
+
+Standardized Residuals:
+          Min            Q1           Med            Q3           Max 
+-0.4826062522  0.0008980523  0.0021054417  0.0147892786  0.5130174374 
+
+Transition probabilities:
+           Regime 1   Regime 2
+Regime 1 0.97929577 0.03179132
+Regime 2 0.02070423 0.96820868
+\end{verbatim}
+
+\hypertarget{exemple-2}{%
+\subsubsection{Exemple 2}\label{exemple-2}}
+
+Dans l'exemple suivant, on veut étudier la relation entre le nombre de
+décès des accidents et les conditions climatiques.
+
+Les données du \texttt{traffic} contiennent le nombre quotidien de décès
+dans des accidents de la circulation en Espagne au cours de l'année
+2010, la température moyenne quotidienne et la somme quotidienne des
+précipitations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(traffic)}
+\FunctionTok{head}\NormalTok{(traffic)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+        Date NDead      Temp  Prec
+1 01/01/2010     3  9.273333 109.1
+2 02/01/2010     2  8.761798 150.3
+3 03/01/2010     3  9.404396 442.1
+4 04/01/2010     4 10.340000 700.9
+5 05/01/2010     4  9.353846 132.9
+6 06/01/2010     4  7.408889 429.2
+\end{verbatim}
+
+Dans cet exemple, la variable de réponse est une variable de comptage.
+Pour cette raison, nous ajustons un modèle linéaire généralisé de
+Poisson.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod1}\OtherTok{=}\FunctionTok{glm}\NormalTok{(NDead}\SpecialCharTok{\textasciitilde{}}\NormalTok{Temp}\SpecialCharTok{+}\NormalTok{Prec, }\AttributeTok{family=}\StringTok{"poisson"}\NormalTok{,}\AttributeTok{data=}\NormalTok{traffic)}
+\NormalTok{m1}\OtherTok{=}\FunctionTok{msmFit}\NormalTok{(mod1,}\AttributeTok{k=}\DecValTok{2}\NormalTok{,}\AttributeTok{sw=}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{TRUE}\NormalTok{,}\ConstantTok{TRUE}\NormalTok{),}\AttributeTok{family=}\StringTok{"poisson"}\NormalTok{,}
+          \AttributeTok{control=}\FunctionTok{list}\NormalTok{(}\AttributeTok{parallel=}\ConstantTok{FALSE}\NormalTok{))}
+\FunctionTok{slotNames}\NormalTok{(m1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] "family"     "Likelihood" "model"      "Coef"       "seCoef"    
+ [6] "transMat"   "iniProb"    "call"       "k"          "switch"    
+[11] "p"          "Fit"       
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(m1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Markov Switching Model
+
+Call: msmFit(object = mod1, k = 2, sw = c(TRUE, TRUE, TRUE), family = "poisson", 
+    control = list(parallel = FALSE))
+
+       AIC      BIC    logLik
+  1713.878 1772.676 -850.9388
+
+Coefficients:
+
+Regime 1 
+---------
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)(S)   1.5659     0.1587   9.867  < 2e-16 ***
+Temp(S)          0.0194     0.0080   2.425  0.01531 *  
+Prec(S)          0.0004     0.0002   2.000  0.04550 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Regime 2 
+---------
+               Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)(S)   0.7649     0.1807  4.2330 2.306e-05 ***
+Temp(S)          0.0288     0.0083  3.4699 0.0005207 ***
+Prec(S)          0.0002     0.0002  1.0000 0.3173105    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Transition probabilities:
+          Regime 1  Regime 2
+Regime 1 0.5086022 0.2712187
+Regime 2 0.4913978 0.7287813
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtProb}\OtherTok{=}\NormalTok{m1}\SpecialCharTok{@}\NormalTok{Fit}\SpecialCharTok{@}\NormalTok{filtProb}
+\NormalTok{smoothProb}\OtherTok{=}\NormalTok{m1}\SpecialCharTok{@}\NormalTok{Fit}\SpecialCharTok{@}\NormalTok{smoProb}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(filtProb[,}\DecValTok{1}\NormalTok{], }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Prob Filt 1"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(filtProb[,}\DecValTok{2}\NormalTok{], }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Prob Filt 2"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(smoothProb[,}\DecValTok{1}\NormalTok{], }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Prob lisse 1"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(smoothProb[,}\DecValTok{1}\NormalTok{], }\AttributeTok{type=}\StringTok{"l"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Prob lisse 2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Chap3_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\hypertarget{moduxe8le-uxe0-coefficients-dynamiques-time-varying-coefficients-model}{%
+\section{Modèle à coefficients dynamiques (Time varying coefficients
+model)}\label{moduxe8le-uxe0-coefficients-dynamiques-time-varying-coefficients-model}}
+
 \textbf{Références}
 
 \hypertarget{refs}{}
@@ -420,6 +700,11 @@ Chan, K. S. 1990. {«~{Testing for Threshold Autoregression}~»}.
 \leavevmode\vadjust pre{\hypertarget{ref-chenTsay91}{}}%
 Chen, Rong, et Ruey S. Tsay. 1991. {«~On the Ergodicity of Tar(1)
 Processes~»}. \emph{The Annals of Applied Probability} 1 (4): 613‑34.
+
+\leavevmode\vadjust pre{\hypertarget{ref-hamilton90}{}}%
+Hamilton, James D. 1990. {«~Analysis of time series subject to changes
+in regime~»}. \emph{Journal of Econometrics} 45 (1): 39‑70.
+\url{https://doi.org/10.1016/0304-4076(90)90093-9}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-hansen97}{}}%
 Hansen, Bruce. 1997. {«~Inference in TAR Models~»}. \emph{Studies in

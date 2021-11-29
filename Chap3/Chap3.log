@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.16)  16 NOV 2021 02:23
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.24)  29 NOV 2021 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Chap3.tex
 (./Chap3.tex
 LaTeX2e <2021-11-15>
-L3 programming layer <2021-11-12> (c:/Users/User/AppData/Roaming/TinyTeX/texmf-
+L3 programming layer <2021-11-22> (c:/Users/User/AppData/Roaming/TinyTeX/texmf-
 dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -137,7 +137,7 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicod
 e-math.sty (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel
 /expl3.sty
-Package: expl3 2021-11-12 L3 programming layer (loader) 
+Package: expl3 2021-11-22 L3 programming layer (loader) 
 
 (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend
 -xetex.def
@@ -456,7 +456,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.s
 ty
-Package: fancyvrb 2021/10/15 v3.9 verbatim text (tvz,hv)
+Package: fancyvrb 2021/11/18 v4.0 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count305
 \FV@InFile=\read2
 \FV@TabBox=\box55
@@ -1089,40 +1089,56 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (c:/Users/User/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cf
 g
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) (./Chap3.toc
+LaTeX Info: Redefining \rmfamily on input line 1.
+LaTeX Info: Redefining \sffamily on input line 1.
+LaTeX Info: Redefining \ttfamily on input line 1.
+LaTeX Info: Redefining \rmfamily on input line 2.
+LaTeX Info: Redefining \sffamily on input line 2.
+LaTeX Info: Redefining \ttfamily on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 5.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 5.
 )
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 198.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 198.
-File: Chap3_files/figure-latex/tar1-1.pdf Graphic file (type pdf)
-<use Chap3_files/figure-latex/tar1-1.pdf>
+\tf@toc=\write4
+\openout4 = `Chap3.toc'.
+
 [1
 
-] [2]
+]
+File: Chap3_files/figure-latex/tar1-1.pdf Graphic file (type pdf)
+<use Chap3_files/figure-latex/tar1-1.pdf>
+[2] [3]
 File: Chap3_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use Chap3_files/figure-latex/unnamed-chunk-2-1.pdf>
-[3]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 332.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 337.
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 332.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 337.
 
 File: Chap3_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Chap3_files/figure-latex/unnamed-chunk-3-1.pdf>
-[4]
+[4] [5] [6]
+File: Chap3_files/figure-latex/sim1-1.pdf Graphic file (type pdf)
+<use Chap3_files/figure-latex/sim1-1.pdf>
+[7] [8] [9]
+File: Chap3_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use Chap3_files/figure-latex/unnamed-chunk-7-1.pdf>
+[10]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1157,7 +1173,7 @@ braces):
 >  {french/babelname}  =>  {french}
 >  {french/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {french/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[5] (./Chap3.aux
+[11] (./Chap3.aux
 LaTeX Info: Redefining \rmfamily on input line 21.
 LaTeX Info: Redefining \sffamily on input line 21.
 LaTeX Info: Redefining \ttfamily on input line 21.
@@ -1166,12 +1182,12 @@ LaTeX Info: Redefining \sffamily on input line 25.
 LaTeX Info: Redefining \ttfamily on input line 25.
 ) ) 
 Here is how much of TeX's memory you used:
- 22302 strings out of 478231
- 414067 string characters out of 5852867
- 940367 words of memory out of 5000000
- 42518 multiletter control sequences out of 15000+600000
- 409865 words of font info for 78 fonts, out of 8000000 for 9000
+ 22345 strings out of 478213
+ 415279 string characters out of 5852440
+ 938971 words of memory out of 5000000
+ 42572 multiletter control sequences out of 15000+600000
+ 409881 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,9n,121p,1002b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,9n,121p,1002b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Chap3.pdf (5 pages).
+Output written on Chap3.pdf (11 pages).
